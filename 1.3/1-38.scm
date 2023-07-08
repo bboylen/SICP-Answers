@@ -1,0 +1,15 @@
+(define (cont-frac n d k)
+  (define (recurse i)
+    (if (> i k)
+        0
+        (/ (n i) (+ (d i) (recurse (+ i 1))))))
+  (recurse 1))
+
+(define k 10)
+(newline)
+(display (cont-frac (lambda (i) 1.0)
+           (lambda (i)
+            (if (= (modulo (+ i 1) 3) 0)
+              (* 2 (/ (+ i 1) 3))
+              1))
+           k))
