@@ -10,4 +10,9 @@
 
 (define (last-pair l)
   (list-ref l (- (length l) 1)))
-(display (last-pair (list 23 72 149 34)))
+
+(define (reverse l)
+  (if (null? l)
+      '()
+      (append (reverse (cdr l)) (list (car l)))))
+(display (reverse (list 1 4 9 16 25)))

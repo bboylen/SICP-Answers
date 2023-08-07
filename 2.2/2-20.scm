@@ -1,0 +1,12 @@
+(define (same-parity x . y)
+  (let ((parity (even? x)))
+    (define (traverse list)
+      (if (null? list)
+          '()
+          (if (eq? parity (even? (car list)))
+              (cons (car list) (traverse (cdr list)))
+              (traverse (cdr list)))))
+    (traverse y)))
+
+(display (same-parity 1 2 3 4 5 6 7)) ; Output: (1 3 5 7)
+(display (same-parity 2 3 4 5 6 7)) ; Output: (2 4 6)
